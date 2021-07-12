@@ -1,17 +1,13 @@
-// service.cpp
-//
-// Author: Mikko Saarinki
-// Copyright (c) 2016 Mikko Saarinki. All rights reserved.
-//
 #include "ServiceMain.h"
 
-#include "ExampleApp.h"
+#include "SDSService.h"
 
-#define SERVICENAME TEXT("ExampleApp")
-#define DISPLAYNAME TEXT("Windows Service Example") //displayed in Windows Services
-#define DESCRIPTION TEXT("Does nothing but sleeps and waits for service stop signal.")
-
-void __cdecl _tmain(int argc, TCHAR *argv[])
+int __cdecl _tmain(int argc, TCHAR *argv[])
 {
-    ServiceMain<ExampleApp>(SERVICENAME, DISPLAYNAME, DESCRIPTION, argv);
+    char* service_name = (char*)"SDSService";
+    const char* display_name = "SchoolDigitalSignage Server";
+    char* description = (char*)"Acts as the server for SchoolDigitalSignage Clients";
+
+    ServiceMain<SDSService>(service_name, display_name, description, argv);
+    return 0;
 }

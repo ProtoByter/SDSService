@@ -3,7 +3,7 @@
 // Author: Mikko Saarinki
 // Copyright (c) 2016 Mikko Saarinki. All rights reserved.
 //
-#pragma once
+
 #include "ServiceUtils.h"
 
 #include <comdef.h> //for _com_error

@@ -1,8 +1,12 @@
-cmake_minimum_required (VERSION 3.5)
+project(SDSService)
 
-project (ExampleService)
+set(ASIO_INCLUDE_DIR "NOTFOUND" CACHE PATH "Path to ASIO include directory - note do not use boost.asio")
 
-file(GLOB SOURCES "*.cpp")
-file(GLOB HEADERS "*.h")
+set(CMAKE_CXX_STANDARD 20)
 
-add_executable(ExampleService ${SOURCES} ${HEADERS})
+if (NOT ASIO_INCLUDE_DIR)
+	message(FATAL_ERROR "ASIO Include Directory not specificed")
+endif()
+
+add_executable(SDSService service.cpp ServiceUtils.cpp Service.h ServiceMain.h ServiceUtils.h SDSService.h)
+target_include_directories(SDSService PRIVATE ${ASIO_INCLUDE_DIR})
