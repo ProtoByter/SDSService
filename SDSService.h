@@ -27,7 +27,7 @@ using asio::detached;
 using asio::use_awaitable;
 namespace this_coro = asio::this_coro;
 
-#define SIGNAGE_PORT 17540
+#define SIGNAGE_PORT 17420
 
 struct client_info
 {
